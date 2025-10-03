@@ -1,0 +1,22 @@
+NEST
+Crear proyeto
+-	nest new nameProject
+
+correr Project
+-	npm start (produccion)
+-	npm run start:dev (dev)
+
+para revisar consoles log, variables isn usar
+-	npm run lint 
+
+instalación ORM
+-	npm install @nestjs/typeorm typeorm pg
+
+para instalar variables de entorno
+-	npm I @nestjs/config
+
+solucion al problema de slint
+-	npm install --save-dev eslint prettier eslint-plugin-prettier eslint-config-prettier
+
+crear un recurso
+- nest g res cats --no-spec
