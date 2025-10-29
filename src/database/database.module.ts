@@ -18,9 +18,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         autoLoadEntities: true,
         synchronize: true,
         retryAttempts: 5,
-        retryDelay: 3000,
+        retryDelay: 3000, ssl: {
+        rejectUnauthorized: false,
+      },
       }),
     }),
   ],
-}) 
+})
 export class DatabaseModule {}
