@@ -14,7 +14,10 @@ async function bootstrap() {
   );
   app.use(cookieParser());
   app.enableCors({
-    origin: ['http://localhost:5173','https://pet-qr-oi3h0x5nm-jorges-projects-7cc2791b.vercel.app'],
+    origin: [
+      'http://localhost:5173',
+      'https://pet-qr-16rpikjyc-jorges-projects-7cc2791b.vercel.app',
+    ],
     credentials: true,
   });
   await app.listen(process.env.PORT ?? 3000);
