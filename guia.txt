@@ -20,3 +20,6 @@ solucion al problema de slint
 
 crear un recurso
 - nest g res cats --no-spec
+
+crear modulos, controoler, services
+- nest g module nombre
