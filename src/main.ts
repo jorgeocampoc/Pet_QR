@@ -17,6 +17,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:5173',
       'https://pet-qr-16rpikjyc-jorges-projects-7cc2791b.vercel.app',
+      'https://pet-qr-vue.vercel.app',
     ],
     credentials: true,
   });
