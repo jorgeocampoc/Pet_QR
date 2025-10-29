@@ -38,10 +38,11 @@ export class AuthController {
     @Res({ passthrough: true }) res: Response,
   ) {
     const { token, email } = await this.authService.login(userDto);
+    const isProduction = process.env.NODE_ENV === 'production';
     res.cookie('access_token', token, {
       httpOnly: true,
-      secure: true,
-      sameSite: 'strict',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
       maxAge: 24 * 60 * 60 * 1000,
     });
 
@@ -55,15 +56,15 @@ export class AuthController {
   @Post('logout')
   // @UseGuards(AuthGuard)
   logOut(@Res() res: Response) {
-   res.clearCookie('access_token', {
-    httpOnly: true,
-    secure: true,
-    sameSite: 'strict',
-  });
-  return res.status(200).json({
-    message: 'User successfully logged out',
-    ok: true,
-  });
+    res.clearCookie('access_token', {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'strict',
+    });
+    return res.status(200).json({
+      message: 'User successfully logged out',
+      ok: true,
+    });
   }
 
   @Post('verify-email')
