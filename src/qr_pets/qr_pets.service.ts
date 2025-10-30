@@ -12,7 +12,8 @@ export class QrPetsService {
     private readonly qrPetRepository: Repository<QrPet>,
   ) {}
   async createQrPet(idPet: any) {
-    const data = `${process.env.DB_HOST_FRONT}/qr/${idPet}`;
+    const data = `${process.env.DB_HOST_FRONT}pet/${idPet}`;
+    
     const qrData = await QRCODE.toDataURL(data);
     const qrDto = this.qrPetRepository.create({ qrData });
     qrDto.pet = idPet;
